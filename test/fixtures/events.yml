@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  location: MyText
+  date: 2022-11-17 13:05:35
+
+two:
+  name: MyText
+  location: MyText
+  date: 2022-11-17 13:05:35

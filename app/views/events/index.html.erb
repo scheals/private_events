@@ -1,0 +1,9 @@
+<h1>Private Events</h1>
+<ul>Where will you go today?</ul>
+  <% @events.each do |e|%>
+    <li>
+      <p><%= e.name %></p>
+      <p><%= e.location %></p>
+      <p><%= e.date %></p>
+    </li>
+  <% end %>
