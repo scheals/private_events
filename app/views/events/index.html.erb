@@ -7,3 +7,11 @@
       <p><%= e.date %></p>
     </li>
   <% end %>
+
+<div>
+  <%= link_to 'Create new event!', new_event_path %>
+</div>
+
+<div>
+  <%= link_to 'See your events!', user_path(current_user.id) %>
+</div>
