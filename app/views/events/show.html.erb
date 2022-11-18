@@ -1,0 +1,19 @@
+<div>
+  <%= @event.name %>
+</div>
+
+<p>
+  Event of: <%= @event.creator.email %>
+</p>
+
+<p>
+  <%= @event.location %>
+</p>
+
+<p>
+  <%= @event.date %>
+</p>
+
+<div>
+  <%= link_to 'Home', root_path %>
+</div>
