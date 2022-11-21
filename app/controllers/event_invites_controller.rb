@@ -3,7 +3,7 @@ class EventInvitesController < ApplicationController
     @event_invite = EventInvite.new(invite_params)
 
     if @event_invite.save
-      flash.now[:notice] = "Successfully registered for #{Event.find(params[:id]).name}"
+      flash.now[:success] = "Successfully registered for #{Event.find(params[:id]).name}"
     else
       flash.now[:error] = 'Unable to register for the event.'
     end
