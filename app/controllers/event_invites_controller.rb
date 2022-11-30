@@ -5,10 +5,10 @@ class EventInvitesController < ApplicationController
 
     if @event_invite.save
       flash[:success] = "Successfully registered for #{@event.name}"
-      redirect_to event_path(@event), id: @event.id
+      redirect_to event_path(@event)
     else
       flash[:error] = "Unable to register for the event. Perhaps you've already registered?"
-      redirect_to event_path(@event), id: @event.id, status: :unprocessable_entity
+      redirect_to event_path(@event), status: :unprocessable_entity
     end
   end
 
