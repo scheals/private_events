@@ -2,11 +2,24 @@
 <div>
   <p>Those are the events you've created:</p>
   <ul>
-    <% @user.created_events.each do |e| %>
+    <% @user.created_events.order(date: :asc).each do |e| %>
       <li>
         <p><%= e.name %></p>
         <p><%= e.location %></p>
-        <p><%= e.date %></p>
+        <p><%= e.date.localtime %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <p>Those are the events you've attended:</p>
+  <ul>
+    <% @user.attended_events.where(date: (..Time.current)).each do |e| %>
+      <li>
+        <p><%= e.name %></p>
+        <p><%= e.location %></p>
+        <p><%= e.date.localtime %></p>
       </li>
     <% end %>
   </ul>
@@ -15,11 +28,11 @@
 <div>
   <p>Those are the events you're attending:</p>
   <ul>
-    <% @user.attended_events.each do |e| %>
+    <% @user.attended_events.where(date: (Time.current..)).each do |e| %>
       <li>
         <p><%= e.name %></p>
         <p><%= e.location %></p>
-        <p><%= e.date %></p>
+        <p><%= e.date.localtime %></p>
       </li>
     <% end %>
   </ul>
