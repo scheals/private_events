@@ -3,11 +3,6 @@ class Event < ApplicationRecord
   has_many :event_invites, foreign_key: :event_id
   has_many :attendees, through: :event_invites, class_name: 'User'
 
-  def self.past
-    where(date: (..Time.current))
-  end
-
-  def self.future
-    where(date: (Time.current..))
-  end
+  scope :past, -> { where(date: (..Time.current)) }
+  scope :future, -> { where(date: (Time.current..)) }
 end
