@@ -15,7 +15,7 @@
 <div>
   <p>Those are the events you've attended:</p>
   <ul>
-    <% @user.attended_events.where(date: (..Time.current)).each do |e| %>
+    <% @user.attended_events.past.each do |e| %>
       <li>
         <p><%= e.name %></p>
         <p><%= e.location %></p>
@@ -28,7 +28,7 @@
 <div>
   <p>Those are the events you're attending:</p>
   <ul>
-    <% @user.attended_events.where(date: (Time.current..)).each do |e| %>
+    <% @user.attended_events.future.each do |e| %>
       <li>
         <p><%= e.name %></p>
         <p><%= e.location %></p>
