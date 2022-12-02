@@ -4,7 +4,7 @@
     <li>
       <p><%= e.name %></p>
       <p><%= e.location %></p>
-      <p><%= e.date %></p>
+      <p><%= e.date.localtime %></p>
       <p> <%= link_to 'Show event details', event_path(e.id) %> </p>
     </li>
   <% end %>
