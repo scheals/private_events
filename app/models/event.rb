@@ -6,4 +6,8 @@ class Event < ApplicationRecord
   def self.past
     where(date: (..Time.current))
   end
+
+  def self.future
+    where(date: (Time.current..))
+  end
 end
