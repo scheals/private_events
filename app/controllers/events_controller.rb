@@ -21,6 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event_invite = EventInvite.find_by(attendee_id: current_user.id, event_id: @event.id)
   end
 
   def destroy
