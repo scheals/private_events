@@ -15,7 +15,7 @@
 <div>
   <p>Those are the events you've attended:</p>
   <ul>
-    <% @user.attended_events.past.each do |e| %>
+    <% @user.attended_events.past.order(date: :asc).each do |e| %>
       <li>
         <p><%= e.name %></p>
         <p><%= e.location %></p>
@@ -28,7 +28,7 @@
 <div>
   <p>Those are the events you're attending:</p>
   <ul>
-    <% @user.attended_events.future.each do |e| %>
+    <% @user.attended_events.future.order(date: :asc).each do |e| %>
       <li>
         <p><%= e.name %></p>
         <p><%= e.location %></p>
