@@ -1,13 +1,32 @@
 <h1>Private Events</h1>
 <ul>Where will you go today?</ul>
-  <% @events.each do |e|%>
-    <li>
-      <p><%= e.name %></p>
-      <p><%= e.location %></p>
-      <p><%= e.date.localtime %></p>
-      <p> <%= link_to 'Show event details', event_path(e.id) %> </p>
-    </li>
-  <% end %>
+<div>
+  <p>Upcoming events:</p>
+  <ul>
+    <% @events.past.each do |e| %>
+      <li>
+        <p><%= e.name %></p>
+        <p><%= e.location %></p>
+        <p><%= e.date.localtime %></p>
+        <p> <%= link_to 'Show event details', event_path(e.id) %> </p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <p>Past events:</p>
+  <ul>
+    <% @events.future.each do |e| %>
+      <li>
+        <p><%= e.name %></p>
+        <p><%= e.location %></p>
+        <p><%= e.date.localtime %></p>
+         <p> <%= link_to 'Show event details', event_path(e.id) %> </p>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <div>
   <%= link_to 'Create new event!', new_event_path %>
