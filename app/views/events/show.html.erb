@@ -21,12 +21,24 @@
     <li><%= attendee.email %></li>
     <% end %>
   </ul>
-<div>
+</div>
 
+<div>
   <p>Want to register for the event?</p>
   <%= render "event_invite/register" %>
 </div>
 
+  <% if current_user == @event.creator %>
+  <div>
+    <p>Call off the party?</p>
+      <%= link_to "Destroy", event_path(@event), data: {
+                                                        turbo_method: :delete,
+                                                        turbo_confirm: "Are you sure?"
+                                                       } %>
+  </div>
+  <% end %>
 <div>
-  <%= link_to 'Home', root_path %>
+  <p>
+    <%= link_to 'Home', root_path %>
+  </p>
 </div>
