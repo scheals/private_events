@@ -1,0 +1,19 @@
+<%= form_with model: event_invite do |form| %>
+  <div>
+    <%= form.hidden_field :event_id, value: params[:id] %>
+    <% @event.errors.full_messages_for(:event_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :attendee_id, value: current_user.id %>
+    <% @event.errors.full_messages_for(:attendee_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit value:'Register' %>
+  </div>
+<% end %>
