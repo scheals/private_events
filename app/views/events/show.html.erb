@@ -30,6 +30,11 @@
 
   <% if current_user == @event.creator %>
   <div>
+    <p>Change something about the party?</p>
+    <p><%= link_to "Edit", edit_event_path(@event) %></p>
+  </div>
+
+  <div>
     <p>Call off the party?</p>
       <%= link_to "Destroy", event_path(@event), data: {
                                                         turbo_method: :delete,
