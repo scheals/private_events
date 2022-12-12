@@ -23,10 +23,12 @@
   </ul>
 </div>
 
-<div>
-  <p>Want to register for the event?</p>
-  <%= render "event_invite/register" %>
-</div>
+<% if user_signed_in? %>
+  <div>
+    <p>Want to register for the event?</p>
+    <%= render "event_invite/register" %>
+  </div>
+<% end %>
 
 <% if @event.attendees.include?(current_user) %>
   <div>

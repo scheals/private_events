@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @event_invite = EventInvite.find_by(attendee_id: current_user.id, event_id: @event.id)
+    @event_invite = EventInvite.find_by(attendee_id: current_user.id, event_id: @event.id) if user_signed_in?
   end
 
   def destroy
