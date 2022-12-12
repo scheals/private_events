@@ -29,10 +29,17 @@
   </ul>
 </div>
 
-<div>
-  <%= link_to 'Create new event!', new_event_path %>
-</div>
+<% if user_signed_in? %>
+  <div>
+    <p>
+      <%= link_to 'Create new event!', new_event_path %>
+    </p>
+  </div>
 
-<div>
-  <%= link_to 'See your events!', user_path(current_user.id) %>
-</div>
+
+  <div>
+    <p>
+      <%= link_to 'See your events!', user_path(current_user.id) %>
+    </p>
+  </div>
+<% end %>
