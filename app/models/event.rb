@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User'
-  has_many :event_invites, foreign_key: :event_id
+  has_many :event_invites, foreign_key: :event_id, dependent: :destroy
   has_many :attendees, through: :event_invites, class_name: 'User'
 
   scope :past, -> { where(date: (..Time.current)) }
