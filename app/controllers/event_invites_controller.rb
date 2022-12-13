@@ -1,4 +1,6 @@
 class EventInvitesController < ApplicationController
+  before_action :authenticate_user!, only: [:destroy, :create]
+
   def create
     @event_invite = EventInvite.new(invite_params)
     @event = Event.find(@event_invite.event_id)
