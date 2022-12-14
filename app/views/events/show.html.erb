@@ -33,7 +33,7 @@
 <% if @event.attendees.include?(current_user) %>
   <div>
     <p>Not coming?</p>
-    <%= link_to "Destroy", event_invite_path(@event_invite), data: {
+    <%= link_to "Stop attending", event_invite_path(@event_invite), data: {
                       turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
                     } %>
@@ -42,13 +42,18 @@
 
 <% if current_user == @event.creator %>
   <div>
+    <p>Want to invite someone?</p>
+    <%= render "event_invite/invite" %>
+  </div>
+
+  <div>
     <p>Change something about the party?</p>
-    <p><%= link_to "Edit", edit_event_path(@event) %></p>
+    <p><%= link_to "Change", edit_event_path(@event) %></p>
   </div>
 
   <div>
     <p>Call off the party?</p>
-      <%= link_to "Destroy", event_path(@event), data: {
+      <%= link_to "Call off", event_path(@event), data: {
                                                         turbo_method: :delete,
                                                         turbo_confirm: "Are you sure?"
                                                        } %>

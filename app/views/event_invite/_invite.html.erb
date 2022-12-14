@@ -1,0 +1,13 @@
+<%= form_with model: EventInvite.new do |f| %>
+  <div>
+    <%= f.hidden_field :event_id, value: params[:id] %>
+    <% @event.errors.full_messages_for(:event_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.select :attendee_id, User.all.collect { |u| [ u.email, u.id ] } %>
+    <%= f.submit 'Invite to party' %>
+  </div>
+<% end %>
